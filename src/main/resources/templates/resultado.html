@@ -4,7 +4,8 @@
   <title>Resultado</title>
 </head>
 <body>
-<h1>Resultado: <span th:text="${resultado}"></span></h1>
+<h1 th:if="${error == null}">Resultado: <span th:text="${resultado}"></span></h1>
+<h1 th:if="${error != null}" th:text="${error}"></h1>
 <a href="/calculadora/formulario">Volver al formulario</a>
 </body>
 </html>

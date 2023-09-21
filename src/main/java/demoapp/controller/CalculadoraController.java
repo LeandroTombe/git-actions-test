@@ -30,7 +30,8 @@ public class CalculadoraController {
             return "formulario";
         }
 
-        double resultado;
+        double resultado = 0.0;
+        String error = null;  // Inicializamos la variable error
 
         try {
             char operadorChar = calculadoraForm.getOperador().charAt(0);
@@ -38,14 +39,10 @@ public class CalculadoraController {
                                                   calculadoraForm.getOperando2(),
                                                   operadorChar);
         } catch (ArithmeticException e) {
-            model.addAttribute("error", "No se puede dividir por cero");
-            return "resultado";
-        } catch (IllegalArgumentException e) {
-            model.addAttribute("error", "Operación no válida");
-            return "resultado";
+            error = "No se puede dividir por cero";
         }
-
         model.addAttribute("resultado", resultado);
+        model.addAttribute("error", error);  // Siempre añadimos la variable error al modelo
         return "resultado";
     }
 }
