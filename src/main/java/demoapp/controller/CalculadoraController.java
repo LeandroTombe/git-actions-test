@@ -33,9 +33,10 @@ public class CalculadoraController {
         double resultado;
 
         try {
+            char operadorChar = calculadoraForm.getOperador().charAt(0);
             resultado = calculadoraService.operar(calculadoraForm.getOperando1(),
                                                   calculadoraForm.getOperando2(),
-                                                  calculadoraForm.getOperador());
+                                                  operadorChar);
         } catch (ArithmeticException e) {
             model.addAttribute("error", "No se puede dividir por cero");
             return "resultado";

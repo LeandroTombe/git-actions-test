@@ -5,10 +5,18 @@
 </head>
 <body>
 <form action="/calculadora/calcular" th:object="${calculadoraForm}" method="post">
+
   <input type="number" th:field="*{operando1}" placeholder="Operando 1"/>
+  <span th:if="${#fields.hasErrors('operando1')}" th:errors="*{operando1}"></span>
+
   <input type="number" th:field="*{operando2}" placeholder="Operando 2"/>
+  <span th:if="${#fields.hasErrors('operando2')}" th:errors="*{operando2}"></span>
+
   <input type="text" th:field="*{operador}" placeholder="Operador"/>
+  <span th:if="${#fields.hasErrors('operador')}" th:errors="*{operador}"></span>
+
   <button type="submit">Calcular</button>
 </form>
 </body>
 </html>
+
