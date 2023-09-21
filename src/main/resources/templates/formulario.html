@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario Calculadora</title>
+</head>
+<body>
+<form action="#" th:object="${calculadoraForm}">
+  <input type="number" th:field="*{operando1}" placeholder="Operando 1"/>
+  <input type="number" th:field="*{operando2}" placeholder="Operando 2"/>
+  <input type="text" th:field="*{operador}" placeholder="Operador"/>
+  <button type="submit">Calcular</button>
+</form>
+</body>
+</html>
